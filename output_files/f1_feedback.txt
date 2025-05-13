@@ -1,0 +1,30 @@
+### Quality Summary
+The given function is concise and effectively calculates the average of a list of numbers. However, it may not handle certain edge cases as expected (e.g., non-numeric values, division by zero).
+
+### Line-Specific Comments
+1. `if not numbers: return 0` 
+   - Consider raising a `ValueError` or returning `None` instead of 0 to indicate that the input list is empty. Returning 0 might be misleading, as it's a valid average value for a list of numbers.
+
+2. `return sum(numbers) / len(numbers)`
+   - This line assumes that the input list only contains numeric values. If the list contains non-numeric values, a `TypeError` will be raised.
+   - Additionally, if the input list is very large and contains very large numbers, the sum might exceed the maximum limit for an integer in Python, leading to an `OverflowError`.
+
+### Quality Rating
+Needs Improvement
+
+To improve the function, consider adding error checking code to handle potential issues, such as:
+- Checking if the input is a list
+- Verifying that the list contains only numeric values
+- Handling the case where the input list contains extremely large numbers
+
+Here is an updated version of the function:
+```python
+def calculate_average(numbers):
+    if not isinstance(numbers, list):
+        raise TypeError("Input must be a list")
+    if not numbers:
+        raise ValueError("Input list is empty")
+    if not all(isinstance(x, (int, float)) for x in numbers):
+        raise ValueError("All elements in the list must be numbers")
+    return sum(numbers) / len(numbers)
+```
