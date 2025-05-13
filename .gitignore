@@ -1,0 +1,5 @@
+.env
+/env
+__pycache__
+Reflextion.txt
+requirements.txt

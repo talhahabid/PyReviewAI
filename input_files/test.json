@@ -1,0 +1,14 @@
+[
+    {
+        "filename": "f1.py",
+        "code": "def calculate_average(numbers):\n    if not numbers:\n        return 0\n    return sum(numbers) / len(numbers)"
+    },
+    {
+        "filename": "f2.py",
+        "code": "def greet(name):\n    print(\"Hello \" + name + \"!\")"
+    },
+    {
+        "filename": "f3.py",
+        "code": "def find_max(nums):\n    max = 0\n    for num in nums:\n        if num > max:\n            max = num\n    return max"
+    }
+]
